@@ -1,0 +1,1086 @@
+{
+	"table": "job_client_sprite_db",
+	"rows":
+	[
+		{
+			"id": 0,
+			"job_name": "Novice",
+			"job_define": "NOVICE",
+			"sprite": "초보자",
+			"error_m": 0,
+			"error_f": null
+		},
+		{
+			"id": 1,
+			"job_name": "Swordman",
+			"job_define": null,
+			"sprite": "검사",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 2,
+			"job_name": "Magician",
+			"job_define": null,
+			"sprite": "마법사",
+			"error_m": null,
+			"error_f": 2
+		},
+		{
+			"id": 3,
+			"job_name": "Archer",
+			"job_define": null,
+			"sprite": "궁수",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4,
+			"job_name": "Acolyte",
+			"job_define": null,
+			"sprite": "성직자",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 5,
+			"job_name": "Merchant",
+			"job_define": null,
+			"sprite": "상인",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 6,
+			"job_name": "Thief",
+			"job_define": null,
+			"sprite": "도둑",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 7,
+			"job_name": "Knight",
+			"job_define": null,
+			"sprite": "기사",
+			"error_m": 4,
+			"error_f": null
+		},
+		{
+			"id": 8,
+			"job_name": "Priest",
+			"job_define": null,
+			"sprite": "프리스트",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 9,
+			"job_name": "Wizard",
+			"job_define": null,
+			"sprite": "위저드",
+			"error_m": 3,
+			"error_f": 0
+		},
+		{
+			"id": 10,
+			"job_name": "Blacksmith",
+			"job_define": null,
+			"sprite": "제철공",
+			"error_m": 2,
+			"error_f": 2
+		},
+		{
+			"id": 11,
+			"job_name": "Hunter",
+			"job_define": null,
+			"sprite": "헌터",
+			"error_m": 7,
+			"error_f": 4
+		},
+		{
+			"id": 12,
+			"job_name": "Assassin",
+			"job_define": null,
+			"sprite": "어세신",
+			"error_m": 4,
+			"error_f": null
+		},
+		{
+			"id": 13,
+			"job_name": "Knight (Peco)",
+			"job_define": null,
+			"sprite": "페코페코_기사",
+			"error_m": 24,
+			"error_f": 20
+		},
+		{
+			"id": 14,
+			"job_name": "Crusader",
+			"job_define": null,
+			"sprite": "크루세이더",
+			"error_m": 4,
+			"error_f": null
+		},
+		{
+			"id": 15,
+			"job_name": "Monk",
+			"job_define": null,
+			"sprite": "몽크",
+			"error_m": 4,
+			"error_f": null
+		},
+		{
+			"id": 16,
+			"job_name": "Sage",
+			"job_define": null,
+			"sprite": "세이지",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 17,
+			"job_name": "Rogue",
+			"job_define": null,
+			"sprite": "로그",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 18,
+			"job_name": "Alchemist",
+			"job_define": null,
+			"sprite": "연금술사",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 19,
+			"job_name": "Bard",
+			"job_define": null,
+			"sprite": "바드",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 20,
+			"job_name": "Dancer",
+			"job_define": null,
+			"sprite": "무희",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 21,
+			"job_name": "Crusader (Peco)",
+			"job_define": null,
+			"sprite": "구페코크루세이더",
+			"error_m": 20,
+			"error_f": null
+		},
+		{
+			"id": 22,
+			"job_name": "Wedding",
+			"job_define": null,
+			"sprite": "웨딩",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 23,
+			"job_name": "Super Novice",
+			"job_define": null,
+			"sprite": "슈퍼노비스",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 24,
+			"job_name": "Gunslinger",
+			"job_define": null,
+			"sprite": "건너",
+			"error_m": 4,
+			"error_f": 3
+		},
+		{
+			"id": 25,
+			"job_name": "Ninja",
+			"job_define": null,
+			"sprite": "닌자",
+			"error_m": 5,
+			"error_f": 4
+		},
+		{
+			"id": 4001,
+			"job_name": "Novice High",
+			"job_define": null,
+			"sprite": "초보자",
+			"error_m": 0,
+			"error_f": null
+		},
+		{
+			"id": 4002,
+			"job_name": "Swordman High",
+			"job_define": null,
+			"sprite": "검사",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4003,
+			"job_name": "Magician High",
+			"job_define": null,
+			"sprite": "마법사",
+			"error_m": null,
+			"error_f": 2
+		},
+		{
+			"id": 4004,
+			"job_name": "Archer High",
+			"job_define": null,
+			"sprite": "궁수",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4005,
+			"job_name": "Acolyte High",
+			"job_define": null,
+			"sprite": "성직자",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4006,
+			"job_name": "Merchant High",
+			"job_define": null,
+			"sprite": "상인",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4007,
+			"job_name": "Thief High",
+			"job_define": null,
+			"sprite": "도둑",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4008,
+			"job_name": "Lord Knight",
+			"job_define": null,
+			"sprite": "로드나이트",
+			"error_m": 2,
+			"error_f": 3
+		},
+		{
+			"id": 4009,
+			"job_name": "High Priest",
+			"job_define": null,
+			"sprite": "하이프리",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4010,
+			"job_name": "High Wizard",
+			"job_define": null,
+			"sprite": "하이위저드",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4011,
+			"job_name": "Whitesmith",
+			"job_define": null,
+			"sprite": "화이트스미스",
+			"error_m": 4,
+			"error_f": null
+		},
+		{
+			"id": 4012,
+			"job_name": "Sniper",
+			"job_define": null,
+			"sprite": "스나이퍼",
+			"error_m": 8,
+			"error_f": null
+		},
+		{
+			"id": 4013,
+			"job_name": "Assassin Cross",
+			"job_define": null,
+			"sprite": "어쌔신크로스",
+			"error_m": 6,
+			"error_f": 3
+		},
+		{
+			"id": 4014,
+			"job_name": "Lord Knight (Peco)",
+			"job_define": null,
+			"sprite": "로드페코",
+			"error_m": 13,
+			"error_f": 12
+		},
+		{
+			"id": 4015,
+			"job_name": "Paladin",
+			"job_define": null,
+			"sprite": "팔라딘",
+			"error_m": 3,
+			"error_f": null
+		},
+		{
+			"id": 4016,
+			"job_name": "Champion",
+			"job_define": null,
+			"sprite": "챔피온",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4017,
+			"job_name": "Professor",
+			"job_define": null,
+			"sprite": "프로페서",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4018,
+			"job_name": "Stalker",
+			"job_define": null,
+			"sprite": "스토커",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4019,
+			"job_name": "Creator",
+			"job_define": null,
+			"sprite": "크리에이터",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4020,
+			"job_name": "Clown",
+			"job_define": null,
+			"sprite": "클라운",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4021,
+			"job_name": "Gypsy",
+			"job_define": null,
+			"sprite": "집시",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4022,
+			"job_name": "Paladin (Peco)",
+			"job_define": null,
+			"sprite": "페코팔라딘",
+			"error_m": 34,
+			"error_f": 34
+		},
+		{
+			"id": 4023,
+			"job_name": "Baby Novice",
+			"job_define": null,
+			"sprite": "초보자",
+			"error_m": 0,
+			"error_f": null
+		},
+		{
+			"id": 4024,
+			"job_name": "Baby Swordman",
+			"job_define": null,
+			"sprite": "검사",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4025,
+			"job_name": "Baby Magician",
+			"job_define": null,
+			"sprite": "마법사",
+			"error_m": null,
+			"error_f": 2
+		},
+		{
+			"id": 4026,
+			"job_name": "Baby Archer",
+			"job_define": null,
+			"sprite": "궁수",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4027,
+			"job_name": "Baby Acolyte",
+			"job_define": null,
+			"sprite": "성직자",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4028,
+			"job_name": "Baby Merchant",
+			"job_define": null,
+			"sprite": "상인",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4029,
+			"job_name": "Baby Thief",
+			"job_define": null,
+			"sprite": "도둑",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4030,
+			"job_name": "Baby Knight",
+			"job_define": null,
+			"sprite": "기사",
+			"error_m": 4,
+			"error_f": null
+		},
+		{
+			"id": 4031,
+			"job_name": "Baby Priest",
+			"job_define": null,
+			"sprite": "프리스트",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4032,
+			"job_name": "Baby Wizard",
+			"job_define": null,
+			"sprite": "위저드",
+			"error_m": 3,
+			"error_f": 0
+		},
+		{
+			"id": 4033,
+			"job_name": "Baby Blacksmith",
+			"job_define": null,
+			"sprite": "제철공",
+			"error_m": 2,
+			"error_f": 2
+		},
+		{
+			"id": 4034,
+			"job_name": "Baby Hunter",
+			"job_define": null,
+			"sprite": "헌터",
+			"error_m": 7,
+			"error_f": 4
+		},
+		{
+			"id": 4035,
+			"job_name": "Baby Assassin",
+			"job_define": null,
+			"sprite": "어세신",
+			"error_m": 4,
+			"error_f": null
+		},
+		{
+			"id": 4036,
+			"job_name": "Baby Knight (Peco)",
+			"job_define": null,
+			"sprite": "페코페코_기사",
+			"error_m": 24,
+			"error_f": 20
+		},
+		{
+			"id": 4037,
+			"job_name": "Baby Crusader",
+			"job_define": null,
+			"sprite": "크루세이더",
+			"error_m": 4,
+			"error_f": null
+		},
+		{
+			"id": 4038,
+			"job_name": "Baby Monk",
+			"job_define": null,
+			"sprite": "몽크",
+			"error_m": 4,
+			"error_f": null
+		},
+		{
+			"id": 4039,
+			"job_name": "Baby Sage",
+			"job_define": null,
+			"sprite": "세이지",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4040,
+			"job_name": "Baby Rogue",
+			"job_define": null,
+			"sprite": "로그",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4041,
+			"job_name": "Baby Alchemist",
+			"job_define": null,
+			"sprite": "연금술사",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4042,
+			"job_name": "Baby Bard",
+			"job_define": null,
+			"sprite": "바드",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4043,
+			"job_name": "Baby Dancer",
+			"job_define": null,
+			"sprite": "무희바지",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4044,
+			"job_name": "Baby Crusader (Peco)",
+			"job_define": null,
+			"sprite": "구페코크루세이더",
+			"error_m": 20,
+			"error_f": null
+		},
+		{
+			"id": 4045,
+			"job_name": "Baby Super Novice",
+			"job_define": null,
+			"sprite": "슈퍼노비스",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4046,
+			"job_name": "Taekwon",
+			"job_define": null,
+			"sprite": "태권소년",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4047,
+			"job_name": "Star Gladiator",
+			"job_define": null,
+			"sprite": "권성",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4048,
+			"job_name": "Star Gladiator (flying)",
+			"job_define": null,
+			"sprite": "권성융합",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4049,
+			"job_name": "Soul Linker",
+			"job_define": null,
+			"sprite": "소울링커",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4050,
+			"job_name": "Gangsi (Bongun/Munak)",
+			"job_define": null,
+			"sprite": null,
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4051,
+			"job_name": "Death Knight",
+			"job_define": null,
+			"sprite": null,
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4052,
+			"job_name": "Dark Collector",
+			"job_define": null,
+			"sprite": null,
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4054,
+			"job_name": "Rune Knight (Regular)",
+			"job_define": null,
+			"sprite": "룬나이트",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4055,
+			"job_name": "Warlock (Regular)",
+			"job_define": null,
+			"sprite": "워록",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4056,
+			"job_name": "Ranger (Regular)",
+			"job_define": null,
+			"sprite": "레인저",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4057,
+			"job_name": "Arch Bishop (Regular)",
+			"job_define": null,
+			"sprite": "아크비숍",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4058,
+			"job_name": "Mechanic (Regular)",
+			"job_define": null,
+			"sprite": "미케닉",
+			"error_m": 5,
+			"error_f": 2
+		},
+		{
+			"id": 4059,
+			"job_name": "Guillotine Cross (Regular)",
+			"job_define": null,
+			"sprite": "길로틴크로스",
+			"error_m": 5,
+			"error_f": null
+		},
+		{
+			"id": 4060,
+			"job_name": "Rune Knight (Trans)",
+			"job_define": null,
+			"sprite": "룬나이트",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4061,
+			"job_name": "Warlock (Trans)",
+			"job_define": null,
+			"sprite": "워록",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4062,
+			"job_name": "Ranger (Trans)",
+			"job_define": null,
+			"sprite": "레인저",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4063,
+			"job_name": "Arch Bishop (Trans)",
+			"job_define": null,
+			"sprite": "아크비숍",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4064,
+			"job_name": "Mechanic (Trans)",
+			"job_define": null,
+			"sprite": "미케닉",
+			"error_m": 5,
+			"error_f": 2
+		},
+		{
+			"id": 4065,
+			"job_name": "Guillotine Cross (Trans)",
+			"job_define": null,
+			"sprite": "길로틴크로스",
+			"error_m": 5,
+			"error_f": null
+		},
+		{
+			"id": 4066,
+			"job_name": "Royal Guard (Regular)",
+			"job_define": null,
+			"sprite": "로얄가드",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4067,
+			"job_name": "Sorcerer (Regular)",
+			"job_define": null,
+			"sprite": "소서러",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4068,
+			"job_name": "Minstrel (Regular)",
+			"job_define": null,
+			"sprite": "민스트럴",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4069,
+			"job_name": "Wanderer (Regular)",
+			"job_define": null,
+			"sprite": "원더러",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4070,
+			"job_name": "Sura (Regular)",
+			"job_define": null,
+			"sprite": "수라",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4071,
+			"job_name": "Genetic (Regular)",
+			"job_define": null,
+			"sprite": "제네릭",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4072,
+			"job_name": "Shadow Chaser (Regular)",
+			"job_define": null,
+			"sprite": "쉐도우체이서",
+			"error_m": 6,
+			"error_f": null
+		},
+		{
+			"id": 4073,
+			"job_name": "Royal Guard (Trans)",
+			"job_define": null,
+			"sprite": "로얄가드",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4074,
+			"job_name": "Sorcerer (Trans)",
+			"job_define": null,
+			"sprite": "소서러",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4075,
+			"job_name": "Minstrel (Trans)",
+			"job_define": null,
+			"sprite": "민스트럴",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4076,
+			"job_name": "Wanderer (Trans)",
+			"job_define": null,
+			"sprite": "원더러",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4077,
+			"job_name": "Sura (Trans)",
+			"job_define": null,
+			"sprite": "수라",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4078,
+			"job_name": "Genetic (Trans)",
+			"job_define": null,
+			"sprite": "제네릭",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4079,
+			"job_name": "Shadow Chaser (Trans)",
+			"job_define": null,
+			"sprite": "쉐도우체이서",
+			"error_m": 6,
+			"error_f": null
+		},
+		{
+			"id": 4080,
+			"job_name": "Rune Knight (Dragon) (Regular)",
+			"job_define": null,
+			"sprite": "룬나이트쁘띠",
+			"error_m": 26,
+			"error_f": 22
+		},
+		{
+			"id": 4081,
+			"job_name": "Rune Knight (Dragon) (Trans)",
+			"job_define": null,
+			"sprite": "룬나이트쁘띠",
+			"error_m": 26,
+			"error_f": 22
+		},
+		{
+			"id": 4082,
+			"job_name": "Royal Guard (Gryphon) (Regular)",
+			"job_define": null,
+			"sprite": "그리폰가드",
+			"error_m": 29,
+			"error_f": 31
+		},
+		{
+			"id": 4083,
+			"job_name": "Royal Guard (Gryphon) (Trans)",
+			"job_define": null,
+			"sprite": "그리폰가드",
+			"error_m": 29,
+			"error_f": 31
+		},
+		{
+			"id": 4084,
+			"job_name": "Ranger (Warg) (Regular)",
+			"job_define": null,
+			"sprite": "레인져늑대",
+			"error_m": 34,
+			"error_f": 34
+		},
+		{
+			"id": 4085,
+			"job_name": "Ranger (Warg) (Trans)",
+			"job_define": null,
+			"sprite": "레인져늑대",
+			"error_m": 34,
+			"error_f": 34
+		},
+		{
+			"id": 4086,
+			"job_name": "Mechanic (Mado) (Regular)",
+			"job_define": null,
+			"sprite": null,
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4087,
+			"job_name": "Mechanic (Mado) (Trans)",
+			"job_define": null,
+			"sprite": null,
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4096,
+			"job_name": "Baby Rune Knight",
+			"job_define": null,
+			"sprite": "룬나이트",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4097,
+			"job_name": "Baby Warlock",
+			"job_define": null,
+			"sprite": "워록",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4098,
+			"job_name": "Baby Ranger",
+			"job_define": null,
+			"sprite": "레인저",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4099,
+			"job_name": "Baby Arch Bishop",
+			"job_define": null,
+			"sprite": "아크비숍",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4100,
+			"job_name": "Baby Mechanic",
+			"job_define": null,
+			"sprite": "미케닉",
+			"error_m": 5,
+			"error_f": 2
+		},
+		{
+			"id": 4101,
+			"job_name": "Baby Guillotine Cross",
+			"job_define": null,
+			"sprite": "길로틴크로스",
+			"error_m": 5,
+			"error_f": null
+		},
+		{
+			"id": 4102,
+			"job_name": "Baby Royal Guard",
+			"job_define": null,
+			"sprite": "로얄가드",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4103,
+			"job_name": "Baby Sorcerer",
+			"job_define": null,
+			"sprite": "소서러",
+			"error_m": 2,
+			"error_f": null
+		},
+		{
+			"id": 4104,
+			"job_name": "Baby Minstrel",
+			"job_define": null,
+			"sprite": "민스트럴",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4105,
+			"job_name": "Baby Wanderer",
+			"job_define": null,
+			"sprite": "원더러",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4106,
+			"job_name": "Baby Sura",
+			"job_define": null,
+			"sprite": "수라",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4107,
+			"job_name": "Baby Genetic",
+			"job_define": null,
+			"sprite": "제네릭",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4108,
+			"job_name": "Baby Shadow Chaser",
+			"job_define": null,
+			"sprite": "쉐도우체이서",
+			"error_m": 6,
+			"error_f": null
+		},
+		{
+			"id": 4109,
+			"job_name": "Baby Rune Knight (Dragon)",
+			"job_define": null,
+			"sprite": "룬나이트쁘띠",
+			"error_m": 26,
+			"error_f": 22
+		},
+		{
+			"id": 4110,
+			"job_name": "Baby Royal Guard (Gryphon)",
+			"job_define": null,
+			"sprite": "그리폰가드",
+			"error_m": 29,
+			"error_f": 31
+		},
+		{
+			"id": 4111,
+			"job_name": "Baby Ranger (Warg)",
+			"job_define": null,
+			"sprite": "레인져늑대",
+			"error_m": 34,
+			"error_f": 34
+		},
+		{
+			"id": 4112,
+			"job_name": "Baby Mechanic (Mado)",
+			"job_define": null,
+			"sprite": null,
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4190,
+			"job_name": "Super Novice (Expanded)",
+			"job_define": null,
+			"sprite": "슈퍼노비스",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4191,
+			"job_name": "Super Baby (Expanded)",
+			"job_define": null,
+			"sprite": "슈퍼노비스",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4211,
+			"job_name": "Kagerou",
+			"job_define": "?",
+			"sprite": "카게로",
+			"error_m": null,
+			"error_f": null
+		},
+		{
+			"id": 4212,
+			"job_name": "Oboro",
+			"job_define": null,
+			"sprite": "oboro",
+			"error_m": null,
+			"error_f": 6
+		},
+		{
+			"id": 4215,
+			"job_name": "Rebellion",
+			"job_define": null,
+			"sprite": "rebellion",
+			"error_m": 5,
+			"error_f": 5
+		},
+		{
+			"id": 22,
+			"job_name": "Tuxedo",
+			"job_define": null,
+			"sprite": "결혼",
+			"error_m": null,
+			"error_f": null
+		}
+	]
+}
