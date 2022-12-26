@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>PalROEditor</class>
+ <widget class="QMainWindow" name="PalROEditor">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>980</width>
+    <width>917</width>
     <height>670</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>PalROEditor</string>
   </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>851</width>
-     <height>631</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="main_layaout" stretch="2,1">
+  <widget class="QWidget" name="mainLayaout">
+   <layout class="QHBoxLayout" name="main_layaout" stretch="1,2">
     <item>
      <layout class="QVBoxLayout" name="sprite_sel">
       <item>
@@ -112,7 +104,25 @@
      </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="5,1,5">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,5,1,5">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,20">
+        <item>
+         <widget class="QPushButton" name="save_button">
+          <property name="text">
+           <string>💾</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="pal_path_label">
+          <property name="text">
+           <string>.</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
       <item>
        <layout class="QGridLayout" name="o_palette"/>
       </item>

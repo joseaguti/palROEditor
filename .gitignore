@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# New
+.idea/
+output/
+
+*.spr
+*.act
+*.pal
