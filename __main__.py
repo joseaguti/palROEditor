@@ -1,8 +1,8 @@
 from PyQt5 import QtWidgets, uic,QtGui
-from PyQt5.QtWidgets import QLabel, QColorDialog,QDialog, QGraphicsScene
+from PyQt5.QtWidgets import QLabel, QColorDialog,QDialog, QGraphicsScene, QListWidgetItem
 from PyQt5.QtCore import QMetaObject,QObject,QEvent,QPoint,QSize, Qt
 from PyQt5.QtCore import pyqtSlot as Slot, pyqtSignal as Signal
-from PyQt5.QtGui import QColor, QStandardItem,QStandardItemModel,  QPixmap
+from PyQt5.QtGui import QColor, QStandardItem,QStandardItemModel,  QPixmap,QFont
 import sys
 import os
 from functools import partial
@@ -76,7 +76,7 @@ class MainWin(QtWidgets.QMainWindow):
         self.pal_buffer_hair = b''
         self.unsaved = False
         self.current_path = ''
-        self.zip_fp = zipfile.ZipFile(config.get('output_file'))
+        self.zip_fp = zipfile.ZipFile(config.get('output_file'),mode='a')
 
         self.scene = QGraphicsScene(self)
         self.spritePreview.setScene(self.scene)
@@ -179,15 +179,20 @@ class MainWin(QtWidgets.QMainWindow):
 
     def save_pal(self):
         if self.unsaved:
+            self.recompile_pal()
             path = self.current_path
+            path = path.replace('\\\\','\\').replace('\\','/')
             if self.last_pal_sel == 'hair':
                 buffer = self.pal_buffer_hair
             if self.last_pal_sel == 'body':
                 buffer = self.pal_buffer_body
 
             self.zip_fp.writestr(path,buffer)
+            self.zip_fp.close()
+            self.zip_fp = zipfile.ZipFile(config.get('output_file'),mode='a')
             self.unsaved = False
             self.pal_path_label.setText(self.current_path)
+            self.update_pal_list()
 
     def recompile_pal(self):
         pal = self.get_pal_original()
@@ -205,13 +210,22 @@ class MainWin(QtWidgets.QMainWindow):
 
     def get_folder_zp(self,folder):
         #folder = folder.replace('\\\\','\\')
-        #files = [zfile.filename for zfile in self.zip_fp.filelist]
-        files = []
+        files = [filename for filename in self.zip_fp.namelist()]
+        #files = []
+        folder = folder.replace('\\\\','\\').replace('\\','/')
         reg = r"^{}.*".format(folder)
         print(reg)
         regex = re.compile(reg)
-        files_filter = sorted([item for item in files if regex.match(item)])
+        files_filter = sorted([item.replace('/','\\') for item in files if regex.match(item)])
         return sorted(files_filter)
+
+    def get_file_to_zip(self,file):
+        file = file.replace('\\\\', '\\').replace('\\', '/')
+        try:
+            buffer = self.zip_fp.read(file)
+            return buffer
+        except:
+            return False
 
     def get_folder(self,folder):
         def sort_pal(name1):
@@ -240,8 +254,16 @@ class MainWin(QtWidgets.QMainWindow):
 
         self.palListBodyW.clear()
         for file in files:
+            flag = file in files_zp
             filename = file.split('\\')[-1]
-            self.palListBodyW.addItem(filename)
+            if flag:
+                item = QListWidgetItem(filename)
+                font = QFont()
+                font.setBold(True)
+                item.setFont(font)
+            else:
+                item = QListWidgetItem(filename)
+            self.palListBodyW.addItem(item)
             print(filename)
 
         hair_name = f'{grf_global["path"]["hair_name"]}{self.hair_id}_{self.sex_sprite_name}_'
@@ -249,8 +271,17 @@ class MainWin(QtWidgets.QMainWindow):
         files_zp = self.get_folder_zp(grf_global['path']['palette_hair'] +hair_name)
         self.palListHairW.clear()
         for file in files:
+            flag = file in files_zp
             filename = file.split('\\')[-1]
-            self.palListHairW.addItem(filename)
+
+            if flag:
+                item = QListWidgetItem(filename)
+                font = QFont()
+                font.setBold(True)
+                item.setFont(font)
+            else:
+                item = QListWidgetItem(filename)
+            self.palListHairW.addItem(item)
             print(filename)
 
         self.update_sprite()
@@ -379,7 +410,9 @@ class MainWin(QtWidgets.QMainWindow):
         self.last_pal_sel = type_pal
         self.unsaved = False
         self.current_path = pal_path
-        buffer = self.get_file(pal_path)
+        buffer = self.get_file_to_zip(pal_path)
+        if not buffer:
+            buffer = self.get_file(pal_path)
 
         if type_pal == 'body':
             self.pal_buffer_body = buffer
@@ -579,4 +612,7 @@ if __name__ == '__main__':
     print(folders)
 
     app.exec()
+
+    print(mc.zip_fp.namelist())
+    mc.zip_fp.close()
 
