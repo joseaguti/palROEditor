@@ -65,7 +65,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QTabWidget" name="tabWidget">
+       <widget class="QTabWidget" name="palTabList">
         <property name="currentIndex">
          <number>0</number>
         </property>
@@ -106,7 +106,21 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,5,1,5">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,20">
+       <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0,1,20">
+        <item>
+         <widget class="QPushButton" name="undo">
+          <property name="text">
+           <string>⏴</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="redo">
+          <property name="text">
+           <string>⏵</string>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QPushButton" name="save_button">
           <property name="text">

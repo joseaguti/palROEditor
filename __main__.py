@@ -1,8 +1,8 @@
 from PyQt5 import QtWidgets, uic,QtGui
-from PyQt5.QtWidgets import QLabel, QColorDialog,QDialog, QGraphicsScene, QListWidgetItem
+from PyQt5.QtWidgets import QLabel, QColorDialog,QDialog, QGraphicsScene, QListWidgetItem, QShortcut
 from PyQt5.QtCore import QMetaObject,QObject,QEvent,QPoint,QSize, Qt
 from PyQt5.QtCore import pyqtSlot as Slot, pyqtSignal as Signal
-from PyQt5.QtGui import QColor, QStandardItem,QStandardItemModel,  QPixmap,QFont
+from PyQt5.QtGui import QColor, QStandardItem,QStandardItemModel,  QPixmap,QFont, QKeySequence
 import sys
 import os
 from functools import partial
@@ -99,22 +99,75 @@ class MainWin(QtWidgets.QMainWindow):
         self.o2n_full.clicked.connect(partial(self.move_colors_beetwen_pal,'o2n',True))
         self.n2o_full.clicked.connect(partial(self.move_colors_beetwen_pal,'n2o',True))
         self.save_button.clicked.connect(self.save_pal)
+        self.save_button.setShortcut(QKeySequence("Ctrl+S"))
+        self.undo.setShortcut(QKeySequence("Ctrl+Z"))
+        self.redo.setShortcut(QKeySequence("Ctrl+Shift+Z"))
+
+        self.undo.setDisabled(True)
+        self.redo.setDisabled(True)
+
+        self.loadConf()
 
         #self.resizeEvent = self.onResize
+
+        self.mainLayaout.setContentsMargins(20,20,20,20)
 
         self.get_name()
         self.update_pal_list()
         self.update_sprite()
 
-        self.mainLayaout.setContentsMargins(20,20,20,20)
+    def loadConf(self):
+        pal = config.get('pal')
+        if pal is not None:
+            pal = np.array(pal)
+            self.set_pal_newl(pal)
+        win_size = config.get('win_size')
+        if win_size is not None:
+            self.resize(win_size[0],win_size[1])
+
+        self.jobSel.setCurrentText(config.get('job',0))
+        self.genderSel.setCurrentText(config.get('gender',0))
+        self.Hair_id.setValue(int(config.get('hair_id',0)))
+        palListHair = config.get('palListHair','')
+        palListBody = config.get('palListBody','')
+        tab_index = config.get('tab_index',0)
+
+
+    def saveConf(self):
+        pal = self.get_pal_new().tolist()
+        job = self.jobSel.currentText()
+        gender = self.genderSel.currentText()
+        hair_id = self.Hair_id.text()
+        output_file = config.get('output_file')
+        ro_ini_file = config.get('ro_ini_file')
+        win_size = (self.size().width(),self.size().height())
+        if self.palListHairW.currentItem() is not None:
+            palListHair = self.palListHairW.currentItem().text()
+        else:
+            palListHair = ''
+        if self.palListBodyW.currentItem() is not None:
+            palListBody = self.palListBodyW.currentItem().text()
+        else:
+            palListBody = ''
+
+        tab_index = self.palTabList.currentIndex()
+
+        with open('conf.json','w') as fp:
+            json.dump({'pal':pal,'job':job,'gender':gender,
+                       'hair_id':hair_id,'win_size':win_size,
+                       'output_file':output_file,'ro_ini_file':ro_ini_file,
+                       'palListHair':palListHair,'palListBody':palListBody,
+                       'tab_index':tab_index},
+                      fp)
 
     def resizeEvent(self,event):
         print(event.size())
-        h = self.tabWidget.widget(0).size().height()
-        w = self.tabWidget.widget(0).size().width()
+        h = self.palTabList.widget(0).size().height()
+        w = self.palTabList.widget(0).size().width()
         self.palListHairW.resize(w-20,h-20)
         self.palListBodyW.resize(w-20,h-20)
         self.update_sprite()
+
     def __del__(self):
         self.zip_fp.close()
         for i in range(len(self.gp)):
@@ -594,6 +647,22 @@ class MainWin(QtWidgets.QMainWindow):
                 pal[i,j,:] = color
         return pal
 
+    def get_pal_new(self):
+        pal = np.zeros((16, 16, 4), dtype=np.uint8)
+        for i in range(16):
+            for j in range(16):
+                cell = self.n_palette.itemAtPosition(i, j).widget()
+                hexcolor = self.get_background_color(cell)
+                color = [int(hexcolor[1:3], 16), int(hexcolor[3:5], 16), int(hexcolor[5:7], 16), int('00', 16)]
+                pal[i, j, :] = color
+        return pal
+    def set_pal_newl(self,pal):
+        for i in range(16):
+            for j in range(16):
+                cell = self.n_palette.itemAtPosition(i,j).widget()
+                pal_item = pal[i,j,:3].tolist()
+                self.set_background_color(cell,pal_item)
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
@@ -615,4 +684,5 @@ if __name__ == '__main__':
 
     print(mc.zip_fp.namelist())
     mc.zip_fp.close()
+    mc.saveConf()
 
