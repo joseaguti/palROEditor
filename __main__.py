@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets, uic,QtGui
-from PyQt5.QtWidgets import QLabel, QColorDialog,QDialog, QGraphicsScene, QListWidgetItem, QShortcut
-from PyQt5.QtCore import QMetaObject,QObject,QEvent,QPoint,QSize, Qt
+from PyQt5.QtWidgets import QLabel, QColorDialog,QDialog, QGraphicsScene, QListWidgetItem, QShortcut, QMessageBox
+from PyQt5.QtCore import QMetaObject,QObject,QEvent,QPoint,QSize, Qt,QTimer
 from PyQt5.QtCore import pyqtSlot as Slot, pyqtSignal as Signal
 from PyQt5.QtGui import QColor, QStandardItem,QStandardItemModel,  QPixmap,QFont, QKeySequence
 import sys
@@ -76,6 +76,8 @@ class MainWin(QtWidgets.QMainWindow):
         self.pal_buffer_hair = b''
         self.unsaved = False
         self.current_path = ''
+        self.undo_list = []
+        self.redo_list = []
         self.zip_fp = zipfile.ZipFile(config.get('output_file'),mode='a')
 
         self.scene = QGraphicsScene(self)
@@ -99,24 +101,68 @@ class MainWin(QtWidgets.QMainWindow):
         self.o2n_full.clicked.connect(partial(self.move_colors_beetwen_pal,'o2n',True))
         self.n2o_full.clicked.connect(partial(self.move_colors_beetwen_pal,'n2o',True))
         self.save_button.clicked.connect(self.save_pal)
+        self.undo.clicked.connect(self.setUndo)
+        self.redo.clicked.connect(self.setRedo)
         self.save_button.setShortcut(QKeySequence("Ctrl+S"))
         self.undo.setShortcut(QKeySequence("Ctrl+Z"))
         self.redo.setShortcut(QKeySequence("Ctrl+Shift+Z"))
 
         self.undo.setDisabled(True)
         self.redo.setDisabled(True)
-
-        self.loadConf()
-
         #self.resizeEvent = self.onResize
 
         self.mainLayaout.setContentsMargins(20,20,20,20)
 
         self.get_name()
         self.update_pal_list()
-        self.update_sprite()
+
+        self.loadConf()
+
+        timer = QTimer()
+        timer.singleShot(100,self.update_sprite)
+
+        self.resizeEvent(None)
+
+    def setRedo(self):
+        if len(self.redo_list) < 1:
+            self.redo.setDisabled(True)
+            return
+        redo = self.redo_list.pop()
+        if len(self.redo_list) < 1:
+            self.redo.setDisabled(True)
+        print(redo)
+        undo = []
+        for action_redo in redo:
+            xy = action_redo[0]
+            cell = self.o_palette.itemAtPosition(xy[0], xy[1]).widget()
+            undo.append((xy,self.get_background_color(cell)))
+            self.set_background_color(cell, action_redo[1])
+        self.undo_list.append(undo)
+        self.undo.setDisabled(False)
+        self.recompile_pal()
+    def setUndo(self):
+        if len(self.undo_list) < 1:
+            self.undo.setDisabled(True)
+            return
+        undo = self.undo_list.pop()
+        if len(self.undo_list) < 1:
+            self.undo.setDisabled(True)
+        print(undo)
+        redo = []
+        for action_undo in undo:
+            xy = action_undo[0]
+            cell = self.o_palette.itemAtPosition(xy[0], xy[1]).widget()
+            redo.append((xy,self.get_background_color(cell)))
+            self.set_background_color(cell, action_undo[1])
+        self.redo_list.append(redo)
+        self.redo.setDisabled(False)
+        self.recompile_pal()
 
     def loadConf(self):
+        '''
+        Carga la configuración
+        :return:
+        '''
         pal = config.get('pal')
         if pal is not None:
             pal = np.array(pal)
@@ -128,9 +174,24 @@ class MainWin(QtWidgets.QMainWindow):
         self.jobSel.setCurrentText(config.get('job',0))
         self.genderSel.setCurrentText(config.get('gender',0))
         self.Hair_id.setValue(int(config.get('hair_id',0)))
+
         palListHair = config.get('palListHair','')
         palListBody = config.get('palListBody','')
-        tab_index = config.get('tab_index',0)
+        tab_index = int(config.get('tab_index',0))
+        try:
+            itemHair = self.palListHairW.findItems(palListHair,Qt.MatchExactly)[0]
+            itemBody = self.palListBodyW.findItems(palListBody,Qt.MatchExactly)[0]
+
+            self.palListHairW.setCurrentItem(itemHair)
+            self.palListBodyW.setCurrentItem(itemBody)
+            self.palTabList.setCurrentIndex(tab_index)
+
+            self.pal_sel('hair')
+            self.pal_sel('body')
+        except:
+            pass
+
+
 
 
     def saveConf(self):
@@ -141,6 +202,7 @@ class MainWin(QtWidgets.QMainWindow):
         output_file = config.get('output_file')
         ro_ini_file = config.get('ro_ini_file')
         win_size = (self.size().width(),self.size().height())
+        is_max = self.isMaximized()
         if self.palListHairW.currentItem() is not None:
             palListHair = self.palListHairW.currentItem().text()
         else:
@@ -157,15 +219,15 @@ class MainWin(QtWidgets.QMainWindow):
                        'hair_id':hair_id,'win_size':win_size,
                        'output_file':output_file,'ro_ini_file':ro_ini_file,
                        'palListHair':palListHair,'palListBody':palListBody,
-                       'tab_index':tab_index},
+                       'tab_index':tab_index,'is_max':is_max},
                       fp)
 
     def resizeEvent(self,event):
-        print(event.size())
+        #print(event.size())
         h = self.palTabList.widget(0).size().height()
         w = self.palTabList.widget(0).size().width()
-        self.palListHairW.resize(w-20,h-20)
-        self.palListBodyW.resize(w-20,h-20)
+        #self.palListHairW.resize(100,h-100)
+        #self.palListBodyW.resize(100,h-100)
         self.update_sprite()
 
     def __del__(self):
@@ -179,6 +241,7 @@ class MainWin(QtWidgets.QMainWindow):
             oring_pal = self.o_palette
             dest = self.n_pal_ij
             dest_pal = self.n_palette
+            flag = False
 
         if type_move == 'n2o':
             oring = self.n_pal_ij
@@ -187,51 +250,67 @@ class MainWin(QtWidgets.QMainWindow):
             dest_pal = self.o_palette
             self.unsaved = True
             self.pal_path_label.setText(self.current_path + " (*)")
+            self.redo_list = []
+            flag = True
+            undo = []
 
         for i in range(len(oring)):
             cell_origing = oring_pal.itemAtPosition(oring[i][0], oring[i][1]).widget()
             cell_dest = dest_pal.itemAtPosition(dest[i][0], dest[i][1]).widget()
+            if flag:
+                undo.append(((dest[i][0],dest[i][1]),self.get_background_color(cell_dest)))
             self.set_background_color(cell_dest,self.get_background_color(cell_origing))
+
+        if flag:
+            self.undo_list.append(undo)
+            self.undo.setDisabled(False)
 
         self.recompile_pal()
 
 
     def update_sprite(self):
-        sprite_path = grf_global['path']['sprite'] + self.sex_sprite_name + '\\\\'\
-                      + self.body_sprite_name + "_"+self.sex_sprite_name +".spr"
-        act_path = grf_global['path']['sprite'] + self.sex_sprite_name + '\\\\' \
-                      + self.body_sprite_name + "_" + self.sex_sprite_name + ".act"
-        spr_buffer = self.get_file(sprite_path.replace('\\\\','\\'))
-        act_buffer = self.get_file(act_path.replace('\\\\','\\'))
-        spr = SpriteImage(0, 0)
-        body_act = Action(act_buffer)
-        spr.load_sprite_buffer(spr_buffer,act_buffer)
+        try:
+            sprite_path = grf_global['path']['sprite'] + self.sex_sprite_name + '\\\\'\
+                          + self.body_sprite_name + "_"+self.sex_sprite_name +".spr"
+            act_path = grf_global['path']['sprite'] + self.sex_sprite_name + '\\\\' \
+                          + self.body_sprite_name + "_" + self.sex_sprite_name + ".act"
+            spr_buffer = self.get_file(sprite_path.replace('\\\\','\\'))
+            act_buffer = self.get_file(act_path.replace('\\\\','\\'))
+            spr = SpriteImage(0, 0)
+            body_act = Action(act_buffer)
+            spr.load_sprite_buffer(spr_buffer,act_buffer)
 
-        if len(self.pal_buffer_body) == 1024:
-            spr.palette = self.pal_buffer_body
+            if len(self.pal_buffer_body) == 1024:
+                spr.palette = self.pal_buffer_body
 
-        body_img = spr.image()
+            body_img = spr.image()
 
-        hair_name = f'{self.hair_id}_{self.sex_sprite_name}'
-        sprite_path = grf_global['path']['hair'] + self.sex_sprite_name + '\\\\' + hair_name + ".spr"
-        act_path = grf_global['path']['hair'] + self.sex_sprite_name + '\\\\' + hair_name + ".act"
-        spr_buffer = self.get_file(sprite_path.replace('\\\\', '\\'))
-        act_buffer = self.get_file(act_path.replace('\\\\', '\\'))
-        spr = SpriteImage(0, 0)
-        hair_act = Action(act_buffer)
-        if spr_buffer and act_buffer:
-            spr.load_sprite_buffer(spr_buffer, act_buffer)
-        else:
-            return False
+            hair_name = f'{self.hair_id}_{self.sex_sprite_name}'
+            sprite_path = grf_global['path']['hair'] + self.sex_sprite_name + '\\\\' + hair_name + ".spr"
+            act_path = grf_global['path']['hair'] + self.sex_sprite_name + '\\\\' + hair_name + ".act"
+            spr_buffer = self.get_file(sprite_path.replace('\\\\', '\\'))
+            act_buffer = self.get_file(act_path.replace('\\\\', '\\'))
+            spr = SpriteImage(0, 0)
+            hair_act = Action(act_buffer)
+            if spr_buffer and act_buffer:
+                spr.load_sprite_buffer(spr_buffer, act_buffer)
+            else:
+                return False
 
-        if len(self.pal_buffer_hair) == 1024:
-            spr.palette = self.pal_buffer_hair
+            if len(self.pal_buffer_hair) == 1024:
+                spr.palette = self.pal_buffer_hair
 
-        hair_img = spr.image()
-        self.merge_image(body_img,hair_img,body_act,hair_act)
+            hair_img = spr.image()
+            self.merge_image(body_img,hair_img,body_act,hair_act)
+        except:
+            pass
 
     def save_pal(self):
         if self.unsaved:
+            self.undo_list = []
+            self.redo_list = []
+            self.undo.setDisabled(True)
+            self.redo.setDisabled(True)
             self.recompile_pal()
             path = self.current_path
             path = path.replace('\\\\','\\').replace('\\','/')
@@ -453,10 +532,25 @@ class MainWin(QtWidgets.QMainWindow):
             pal = self.palListHairW.currentItem().text()
             print(pal)
             pal_path = grf_global['path']['palette_hair'] + pal
+            list =  self.palListHairW
         if type_pal == 'body':
             pal = self.palListBodyW.currentItem().text()
             print(pal)
             pal_path = grf_global['path']['palette_body'] + pal
+            list = self.palListBodyW
+
+        if self.unsaved:
+            last_pal = self.current_path.split('\\')[-1]
+            item = list.findItems(last_pal,Qt.MatchExactly)[0]
+            list.setCurrentItem(item)
+            res = QMessageBox.question(self, "¿Guardar cambios?", "Tienes cambios sin guardar ¿Deseas guardarlos?",
+                                       QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel)
+            if res == QMessageBox.Yes:
+                self.save_pal()
+            elif res == QMessageBox.Cancel:
+                return
+            item = list.findItems(pal, Qt.MatchExactly)[0]
+            list.setCurrentItem(item)
 
         pal_path = pal_path.replace('\\\\','\\')
         self.pal_path_label.setText(pal_path)
@@ -476,8 +570,6 @@ class MainWin(QtWidgets.QMainWindow):
         self.set_pal_original(pal.pal)
 
         self.update_sprite()
-
-
 
     def init_job_option(self):
         global jobs
@@ -501,8 +593,6 @@ class MainWin(QtWidgets.QMainWindow):
         item.setData(grf_global['path']['sprite_m_sf'])
         model.appendRow(item)
 
-
-
     def get_background_color(self,cell):
         match = re.search(r"background-color : #[a-fA-F0-9]{6};", cell.styleSheet())
         hex_color = match.string[match.start() + 19:match.end() - 1]
@@ -524,6 +614,10 @@ class MainWin(QtWidgets.QMainWindow):
     def change_color(self,type_pal,i,j):
         if type_pal == "original":
             cell = self.o_palette.itemAtPosition(i, j).widget()
+            self.unsaved = True
+            self.undo_list.append([((i, j), self.get_background_color(cell))])
+            self.undo.setDisabled(False)
+            self.pal_path_label.setText(self.current_path + " (*)")
         if type_pal == "new":
             cell = self.n_palette.itemAtPosition(i, j).widget()
         hex_color = self.get_background_color(cell)
@@ -534,8 +628,6 @@ class MainWin(QtWidgets.QMainWindow):
             # Si se ha pulsado el botón "Cancelar", no hacemos nada
             return
 
-        self.unsaved = True
-        self.pal_path_label.setText(self.current_path + " (*)")
         # Si no se ha pulsado el botón "Cancelar", obtenemos el color seleccionado
         color = color_dialog.selectedColor()
         print(color, color.name())
@@ -591,7 +683,7 @@ class MainWin(QtWidgets.QMainWindow):
         list_grfs = []
         for i in range(9):
             if f"{i}" not in ro_ini['Data']:
-                break
+                continue
             list_grfs.append(os.path.join(path,ro_ini["Data"][f"{i}"]))
 
 
@@ -677,8 +769,8 @@ if __name__ == '__main__':
     #spr.load_sprite_files('test/성투사_여.spr','test/성투사_여.act')
     #mc.put_image(spr.image())
 
-    folders = mc.gp[0].get_folder(grf_global['path']['palette_body']+mc.get_name())
-    print(folders)
+    #folders = mc.gp[0].get_folder(grf_global['path']['palette_body']+mc.get_name())
+    #print(folders)
 
     app.exec()
 
