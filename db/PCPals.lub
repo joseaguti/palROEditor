@@ -1,0 +1,249 @@
+-----------------
+-- 1st Classes --
+-----------------
+[PCIds.NOVICE]   = "body",
+[PCIds.SWORDMAN] = "body",
+[PCIds.MAGICIAN] = "body",
+[PCIds.ARCHER]   = "body",
+[PCIds.ACOLYTE]  = "body",
+[PCIds.MERCHANT] = "body",
+[PCIds.THIEF]    = "body",
+
+--------------------------
+-- Extended 1st Classes --
+--------------------------
+[PCIds.SUPERNOVICE]  = "body",
+[PCIds.TAEKWON]      = "body",
+
+-----------------
+-- 2nd Classes --
+-----------------
+[PCIds.KNIGHT]       = "body",
+[PCIds.KNIGHT_MOUNT] = "body",
+[PCIds.PRIEST]       = "body",
+[PCIds.WIZARD]       = "body",
+[PCIds.BLACKSMITH]   = "body",
+[PCIds.HUNTER]       = "body",
+[PCIds.ASSASSIN]     = "body",
+
+--------------------------
+-- Extended 2nd Classes --
+--------------------------
+[PCIds.HYPER_NOVICE] = "HYPER_NOVICE",
+[PCIds.REBELLION]    = "府骇府柯",
+[PCIds.KAGEROU]      = "body",
+[PCIds.OBORO]        = "body",
+
+-----------------
+-- 3rd Classes --
+-----------------
+[PCIds.RUNE_KNIGHT]    = "body",
+[PCIds.RUNE_MOUNT]     = "body",
+[PCIds.WARLOCK]        = "body",
+[PCIds.RANGER]         = "body",
+[PCIds.RANGER_MOUNT]   = "body",
+[PCIds.ARCHBISHOP]     = "body",
+[PCIds.MECHANIC]       = "body",
+[PCIds.MADOGEAR]       = "body",
+[PCIds.GUILLOTINE_X]   = "body",
+
+[PCIds.ROYAL_GUARD]    = "body",
+[PCIds.ROYAL_MOUNT]    = "body",
+[PCIds.SORCERER]       = "body",
+[PCIds.MINSTREL]       = "body",
+[PCIds.WANDERER]       = "body",
+[PCIds.SURA]           = "body",
+[PCIds.GENETIC]        = "body",
+[PCIds.SHADOW_CHASER]  = "body",
+
+--------------------------
+-- Extended 3rd Classes --
+--------------------------
+[PCIds.NIGHT_WATCH]    = "NIGHT_WATCH",
+[PCIds.SHINKIRO]       = "SHINKIRO",
+[PCIds.SHIRANUI]       = "SHIRANUI",
+[PCIds.STAR_EMPEROR]   = "己力",
+[PCIds.SOUL_REAPER]    = "家匡府欺",
+
+-----------------
+-- 4th Classes --
+-----------------
+[PCIds.DRAGON_KNIGHT]   = "DRAGON_KNIGHT",
+[PCIds.DRAGON_MOUNT]    = "DRAGON_KNIGHT_CHICKEN",
+[PCIds.MEISTER]         = "MEISTER",
+[PCIds.MEISTER_MADO]    = "MEISTER_MADOGEAR1",
+[PCIds.SHADOW_CROSS]    = "SHADOW_CROSS",
+[PCIds.ARCH_MAGE]       = "ARCH_MAGE",
+[PCIds.CARDINAL]        = "CARDINAL",
+[PCIds.WINDHAWK]        = "WINDHAWK",
+[PCIds.WINDHAWK_MOUNT]  = "WOLF_WINDHAWK", --Wolf mount for Windhawk
+
+[PCIds.IMPERIAL_GUARD]  = "IMPERIAL_GUARD",
+[PCIds.IMPERIAL_MOUNT]  = "IMPERIAL_GUARD_CHICKEN",
+[PCIds.BIOLO]           = "BIOLO",
+[PCIds.ABYSS_CHASER]    = "ABYSS_CHASER",
+[PCIds.ELEMENT_MASTER]  = "ELEMETAL_MASTER",
+[PCIds.INQUISITOR]      = "INQUISITOR",
+[PCIds.TROUBADOUR]      = "TROUBADOUR",
+[PCIds.TROUVERE]        = "TROUVERE",
+
+--------------------------
+-- Extended 4th Classes --
+--------------------------
+[PCIds.SKY_EMPEROR]   = "SKY_EMPEROR",
+[PCIds.SKY_EMPEROR_F] = "SKY_EMPEROR2",
+[PCIds.SOUL_ASCETIC]  = "SOUL_ASCETIC",
+
+-----------------------
+-- jRO Sprites      --
+-----------------------
+[PCIds.ARCH_MAGE_RIDING2] = "body",
+[PCIds.ARCH_MAGE2] = "body",
+[PCIds.CARDINAL_RIDING2] = "body",
+[PCIds.CARDINAL2] = "body",
+[PCIds.INQUISITOR_RIDING2] = "body",
+[PCIds.INQUISITOR2] = "body",
+[PCIds.KAGEROU2] = "body",
+[PCIds.OBORO2] = "body",
+[PCIds.GUARD2] = "body",
+[PCIds.MARRIAGE2] = "body",
+[PCIds.GRIFFON_GUARD2] = "body",
+[PCIds.GILRO_TIN_CROSS2] = "body",
+[PCIds.RANGER2] = "body",
+[PCIds.RANGER_WOLF2] = "body",
+[PCIds.RUNITE2] = "body",
+[PCIds.RUNITE_PETIT_22] = "body",
+[PCIds.RUNITE_PETIT_32] = "body",
+[PCIds.RUNITE_PETIT_42] = "body",
+[PCIds.RUNITE_PETIT_52] = "body",
+[PCIds.RUNITE_PETIT2] = "body",
+[PCIds.MADO_GEAR2] = "body",
+[PCIds.MADO_ARMOR2] = "body",
+[PCIds.MICAKE2] = "body",
+[PCIds.MICHANIC_WILD_BOAR2] = "body",
+[PCIds.LION_ROYAL_GUARD2] = "body",
+[PCIds.LION_RUNITE2] = "body",
+[PCIds.SANTA2] = "body",
+[PCIds.SORCERER2] = "body",
+[PCIds.SHADOW_CECIST2] = "body",
+[PCIds.SHURA2] = "body",
+[PCIds.SHURA_ALPACA2] = "body",
+[PCIds.ARC_BEE_SHOP2] = "body",
+[PCIds.ARC_BEE_SHOP_ALPACA2] = "body",
+[PCIds.SUMMER_22] = "body",
+[PCIds.SUMMER2] = "body",
+[PCIds.FOX2] = "body",
+[PCIds.OKTO_BURFEST2] = "body",
+[PCIds.OPERATOR_22] = "body",
+[PCIds.OPERATOR2] = "body",
+[PCIds.WARLOCK2] = "body",
+[PCIds.WONDERER2] = "body",
+[PCIds.GENERIC2] = "body",
+[PCIds.GENERIC_WILD_BOAR2] = "body",
+[PCIds.BEGINNER2] = "body",
+[PCIds.CELVEROS_GIL_LOTIN_CROSS2] = "body",
+[PCIds.CELVEROS_SHADOW_CECHEO2] = "body",
+[PCIds.OSTRICH2] = "body",
+[PCIds.HAN_BOK2] = "body",
+[PCIds.MEISTER_MADOGEAR12] = "body",
+[PCIds.MINOR2] = "body",
+
+
+
+--------------
+-- Costumes --
+--------------
+[PCIds.MARRIED]      = "搬去",
+
+
+--------------------------
+-- Extended 1st Classes --
+--------------------------
+[PCMounts.BIKE_GUNNER]      = "body",
+[PCMounts.FROG_NINJA]       = "body",
+
+-----------------
+-- 2nd Classes --
+-----------------
+[PCMounts.LION_CRUSADER]    = "body",
+[PCMounts.SHEEP_MONK]       = "body",
+[PCMounts.FOX_SAGE]         = "body",
+[PCMounts.HYENA_ROGUE]      = "body",
+[PCMounts.PIG_ALCHE]        = "body",
+[PCMounts.OSTRICH_BARD]     = "body",
+[PCMounts.OSTRICH_DANCER]   = "body",
+
+------------------------------
+-- Transcendent 2nd Classes --
+------------------------------
+[PCMounts.SHEEP_HI_PRIEST]  = "body",
+[PCMounts.FOX_HI_WIZ]       = "body",
+[PCMounts.PIG_WHITESMITH]   = "body",
+[PCMounts.OSTRICH_SNIPER]   = "body",
+[PCMounts.HYENA_SIN_X]      = "body",
+
+[PCMounts.LION_PALADIN]     = "body",
+[PCMounts.SHEEP_CHAMP]      = "body",
+[PCMounts.FOX_PROF]         = "body",
+[PCMounts.HYENA_STALKER]    = "body",
+[PCMounts.PIG_CREATOR]      = "body",
+[PCMounts.OSTRICH_CLOWN]    = "body",
+[PCMounts.OSTRICH_GYPSY]    = "body",
+
+--------------------------
+-- Extended 2nd Classes --
+--------------------------
+[PCMounts.PORING_H_NOVICE]  = "HYPER_NOVICE_RIDING",
+[PCMounts.PORING_STAR]      = "body",
+
+--------------------------------------------------
+-- 3rd Classes (Transcendent also use the same) --
+--------------------------------------------------
+[PCMounts.LION_RUNE_KNIGHT]  = "body",
+[PCMounts.FOX_WARLOCK]       = "body",
+[PCMounts.OSTRICH_RANGER]    = "body",
+[PCMounts.SHEEP_BISHOP]      = "body",
+[PCMounts.PIG_MECHANIC]      = "body",
+[PCMounts.HYENA_G_CROSS]     = "body",
+
+[PCMounts.LION_ROYAL_GUARD]  = "body",
+[PCMounts.FOX_SORCERER]      = "body",
+[PCMounts.OSTRICH_MINSTREL]  = "body",
+[PCMounts.OSTRICH_WANDERER]  = "body",
+[PCMounts.SHEEP_SURA]        = "body",
+[PCMounts.PIG_GENETIC]       = "body",
+[PCMounts.HYENA_S_CHASER]    = "body",
+
+--------------------------
+-- Extended 3rd Classes --
+--------------------------
+[PCMounts.BIKE_NIGHT_WATCH]      = "NIGHT_WATCH_RIDING",
+[PCMounts.FROG_SHINKIRO]         = "SHINKIRO_RIDING",
+[PCMounts.FROG_SHIRANUI]         = "SHIRANUI_RIDING",
+[PCMounts.HAETAE_STAR_EMPEROR]   = "秦怕己力",
+[PCMounts.HAETAE_SOUL_REAPER]    = "秦怕家匡府欺",
+
+-----------------
+-- 4th Classes --
+-----------------
+[PCMounts.LION_DRAGON_KNIGHT]   = "DRAGON_KNIGHT_RIDING",
+[PCMounts.PIG_MEISTER]          = "MEISTER_RIDING",
+[PCMounts.HYENA_SHADOW_CROSS]   = "SHADOW_CROSS_RIDING",
+[PCMounts.FOX_ARCH_MAGE]        = "ARCH_MAGE_RIDING",
+[PCMounts.SHEEP_CARDINAL]       = "CARDINAL_RIDING",
+[PCMounts.OSTRICH_WINDHAWK]     = "WINDHAWK_RIDING",
+
+[PCMounts.LION_IMPERIAL_GUARD]  = "IMPERIAL_GUARD_RIDING",
+[PCMounts.PIG_BIOLO]            = "BIOLO_RIDING",
+[PCMounts.HYENA_ABYSS_CHASER]   = "ABYSS_CHASER_RIDING",
+[PCMounts.FOX_ELEMENT_MASTER]   = "ELEMETAL_MASTER_RIDING",
+[PCMounts.SHEEP_INQUISITOR]     = "INQUISITOR_RIDING",
+[PCMounts.OSTRICH_TROUBADOUR]   = "TROUBADOUR_RIDING",
+[PCMounts.OSTRICH_TROUVERE]     = "TROUVERE_RIDING",
+
+--------------------------
+-- Extended 4th Classes --
+--------------------------
+[PCMounts.HAETAE_SKY_EMPEROR]   = "SKY_EMPEROR_RIDING",
+[PCMounts.HAETAE_SOUL_ASCETIC]  = "SOUL_ASCETIC_RIDING",
+

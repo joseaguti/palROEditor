@@ -280,8 +280,8 @@ class MainWin(QtWidgets.QMainWindow):
             body_act = Action(act_buffer)
             spr.load_sprite_buffer(spr_buffer,act_buffer)
 
-            if len(self.pal_buffer_body) == 1024:
-                spr.palette = self.pal_buffer_body
+            #if len(self.pal_buffer_body) == 1024:
+            spr.palette = self.pal_buffer_body[:1024]
 
             body_img = spr.image()
 
@@ -297,13 +297,13 @@ class MainWin(QtWidgets.QMainWindow):
             else:
                 return False
 
-            if len(self.pal_buffer_hair) == 1024:
-                spr.palette = self.pal_buffer_hair
+            #if len(self.pal_buffer_hair) == 1024:
+            spr.palette = self.pal_buffer_hair[:1024]
 
             hair_img = spr.image()
             self.merge_image(body_img,hair_img,body_act,hair_act)
-        except:
-            pass
+        except Exception as e:
+            print("Error in update_sprite",e)
 
     def save_pal(self):
         if self.unsaved:

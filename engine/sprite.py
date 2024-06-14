@@ -371,6 +371,7 @@ class SpriteImage():
 
         if self.sprite_header['version'] > 1.1:
             self.palette = buffer[pointer:1024 + pointer]
+            self.palette_pos = pointer
 
     def image(self):
         f = self.frames_data[self.frame]
